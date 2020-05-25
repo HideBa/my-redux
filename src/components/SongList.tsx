@@ -33,7 +33,6 @@ const SongList: React.FC<Props> = ({ className, songs, selectSong }) => {
 };
 
 const mapStateToProps = (state: any) => {
-  console.log(state);
   return { songs: state.songs };
 };
 

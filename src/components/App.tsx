@@ -8,7 +8,8 @@ const App = () => {
         <SongList />
       </div>
       <div>
-        <SongDetail></SongDetail>
+        <div>---------</div>
+        <SongDetail />
       </div>
     </div>
   );
