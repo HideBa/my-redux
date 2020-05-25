@@ -1,22 +1,28 @@
 import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
+import { selectSong } from "../actions";
 export interface Props {
   className?: string;
   songs?: {
     title: string;
     duration: string;
   }[];
+  selectSong?: (song: any) => { type: string; payload: any };
 }
 
-const SongList: React.FC<Props> = ({ className, songs }) => {
+export type song = {
+  title: string;
+  duration: string;
+};
+
+const SongList: React.FC<Props> = ({ className, songs, selectSong }) => {
   const renderLIst = () => {
-    return songs?.map(song => {
+    return songs?.map((song) => {
       return (
         <div className="item" key={song.title}>
           <div className="right floated content">
-            {/* <styledButton>Select</styledButton> */}
-            <div>select</div>
+            <div onClick={() => selectSong && selectSong(song)}>select</div>
           </div>
           <div className="content">{song.title}</div>
         </div>
@@ -36,4 +42,4 @@ const styledButton = styled.button`
   color: white;
 `;
 
-export default connect(mapStateToProps)(SongList);
+export default connect(mapStateToProps, { selectSong })(SongList);
