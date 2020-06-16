@@ -2,7 +2,7 @@
 
 ### Redux, TS, Reactでの最初の環境構築についてメモ
 ```
-yarn add create-react-app my-app --typescript
+npx create-react-app my-app --typescript
 ```
 
 ```
